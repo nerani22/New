@@ -1,0 +1,18 @@
+--- 
+- 
+  hosts: node1
+  gather_facts: true
+  become: true
+  tasks: 
+    - name: "Stop httpd service"
+      tags: stop_apache
+      service: 
+        name: httpd
+        state: stopped
+
+    - name: "Uninstall HTTPD/Apache"
+      tags: uninstall_apache
+      yum:
+        name: httpd
+        autoremove: yes
+        state: absent
