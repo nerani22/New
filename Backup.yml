@@ -14,9 +14,10 @@
 
     - name: Perform backup excluding log files
       ansible.builtin.synchronize:
-        src: "/etc/"
+        src: "cp -a /etc/httpd/conf/httpd.conf"
+        #src: "/etc/"
         #dest: "{{ backup_dir }}/{{ ansible_hostname }}_{{ system_date.stdout }}_/etc/"
-        dest: "/tmp/_{{ ansible_hostname }}_{{ system_date.stdout }}"
+        dest: "/tmp/httpd.conf_{{ ansible_hostname }}_{{ system_date.stdout }}"
         mode: pull
         #rsync_opts:
           #- "--exclude=*.log"
