@@ -1,6 +1,6 @@
 ---
 - name: web_app
-  hosts: {{Host_name}}
+  hosts: node2
   gather_facts : yes
   tasks:
 
