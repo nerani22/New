@@ -1,0 +1,24 @@
+---
+- name: Backup
+  hosts: node1
+  becomes: yes
+  gather_facts: false
+  
+  #vars:
+    #backup_dir: /path_backup_directory
+  
+  tasks:
+    - name: Get current "Date" & "Time"
+      ansible.builtin.shell: date +'%c %d-%m-%y'
+      register: system_date
+
+    - name: Perform backup excluding log files
+      ansible.builtin.synchronize:
+        src: "/etc/"
+        #dest: "{{ backup_dir }}/{{ ansible_hostname }}_{{ system_date.stdout }}_/etc/"
+        dest: "/tmp/_{{ ansible_hostname }}_{{ system_date.stdout }}"
+        mode: pull
+        #rsync_opts:
+          #- "--exclude=*.log"
+      #delegate_to: "{{ jump_server }}"
+
