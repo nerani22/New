@@ -1,6 +1,6 @@
 ---
 - name: web_app
-  hosts: all
+  hosts: {{Host_name}}
   gather_facts : yes
   tasks:
 
