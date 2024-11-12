@@ -13,12 +13,13 @@
       register: system_date
 
     - name: Perform backup excluding log files
-      ansible.builtin.synchronize:
+      #ansible.builtin.synchronize:
+      ansible.builtin.shell:
         src: "cp -a /etc/httpd/conf/httpd.conf"
         #src: "/etc/"
         #dest: "{{ backup_dir }}/{{ ansible_hostname }}_{{ system_date.stdout }}_/etc/"
         dest: "/tmp/httpd.conf_{{ system_date.stdout }}"
-        mode: pull
+        #mode: pull
         #rsync_opts:
           #- "--exclude=*.log"
       #delegate_to: "{{ jump_server }}"
