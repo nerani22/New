@@ -20,4 +20,5 @@
         #dest: "{{ backup_dir }}/{{ ansible_hostname }}_{{ system_date.stdout }}_/etc/"
         dest: "/tmp/httpd.conf_{{ system_date.stdout }}"
         mode: '0644'
+        remote_src: True
 
