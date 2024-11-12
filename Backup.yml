@@ -1,6 +1,6 @@
 ---
 - name: Backup
-  hosts: node1
+  hosts: '{{ host }}'
   become: true
   gather_facts: false
   
