@@ -2,7 +2,7 @@
 
 # Add multiple users into wheel group and create random passwords for users which should be changed after one time login
 - name: Create users
-  hosts: all
+  hosts: node1
   become: true
   vars:
     users: "{{ users }}"
