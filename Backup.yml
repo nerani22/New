@@ -12,7 +12,7 @@
       ansible.builtin.shell: date +'%c %d-%m-%y'
       register: system_date
 
-    - name: Perform backup excluding log files
+    - name: Perform backup
       #ansible.builtin.synchronize:
       copy:
         src: "/etc/httpd/conf/httpd.conf"
