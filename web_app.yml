@@ -1,6 +1,6 @@
 ---
 - name: web_app
-  hosts: node2
+  hosts: node1
   gather_facts : yes
   tasks:
 
